@@ -43,11 +43,10 @@ const socket = net.createConnection(
 );
 
 socket.on("data", async (data) => {
-  const [id, message] = data.toString("utf-8").split("-");
   console.log();
   await moveCursor(0, -1);
   await clearLine(0);
-  console.log(`Client ${id}: ${message}`);
+  console.log(data.toString("utf-8"));
 
   ask();
 });
